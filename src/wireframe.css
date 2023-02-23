@@ -1,0 +1,123 @@
+body {
+  background: rgb(243, 244, 246);
+}
+H1 {
+  position: relative;
+  left: 35%;
+  word-spacing: 0.5rem;
+  letter-spacing: 0.3rem;
+  margin-top: 1rem;
+}
+p {
+  font-family: monospace;
+  font-weight: 400;
+}
+
+input[type="text"] {
+  height: 23px;
+  font-size: 12px;
+  text-align: left;
+}
+button {
+  font-size: 16px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 200ms ease-in-out;
+}
+button:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+#button {
+  display: flex;
+}
+#orange-button {
+  background: orange;
+  border: none;
+  height: 30px;
+  font-size: 14px;
+}
+#blue-button {
+  height: 30px;
+  font-size: 14px;
+}
+.container {
+  position: relative;
+  left: 27%;
+  margin: 1rem;
+}
+.weather-app {
+  border: 1px solid #7d51e8;
+  border-radius: 5px;
+  width: 12cm;
+  margin-top: 0.5rem;
+  height: 17.5rem;
+}
+.weather-app {
+  background-image: url(../images/weather-image.jpeg);
+}
+.weather-details {
+  position: relative;
+  left: 1rem;
+  top: 3rem;
+}
+.town-time-des {
+  position: relative;
+  bottom: 3rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: hsl(0, 0%, 8%);
+}
+.town {
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+.icon {
+  position: relative;
+  left: 10%;
+  margin: 3rem;
+  bottom: 3rem;
+  font-size: 500;
+}
+.temp {
+  color: hsl(0, 0%, 8%);
+  position: relative;
+  bottom: 2rem;
+  font-size: 25px;
+}
+.unit {
+  font-size: 20px;
+  font-weight: 600;
+}
+.prep {
+  color: hsl(0, 0%, 8%);
+  font-weight: 800;
+  font-size: 12px;
+  position: relative;
+  left: 10rem;
+  bottom: 4rem;
+}
+
+.list {
+  position: relative;
+  left: 16.5rem;
+  bottom: 18.5rem;
+  font-family: sans-serif;
+  font-weight: 400;
+  margin: 16px;
+}
+
+li {
+  background-color: bisque;
+  list-style: none;
+  letter-spacing: 0.5px;
+  word-spacing: 10px;
+  padding: 10px;
+  margin: 10px;
+  transition: all 200ms ease-in-out;
+  max-width: fit-content;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+li:hover {
+  background: #5b96a82c;
+}

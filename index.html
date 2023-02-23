@@ -4,16 +4,72 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      h1 {
-        font-family: monospace;
-        color: bisque;
-        text-align: center;
-      }
-    </style>
+    <title>Weather Wireframe</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/wireframe.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
-    <h1>GitHub Assignment</h1>
+    <h1>WEATHER APP</h1>
+
+    <div class="container" id="box">
+      <form id="city-form">
+        <div class="row">
+          <div class="col-4">
+            <div class="mb-2">
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                placeholder="Enter a city"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="button">
+          <button type="submit" class="btn btn-primary" id="blue-button">
+            Search
+          </button>
+        
+      </form>
+      <button type="submit" class="btn btn-primary" id="orange-button">
+        Current
+      </button>
+    </div>
+      <div class="weather-app">
+        <div class="weather-details">
+          <div class="town-time-des">
+            <div id="town" class="town"><strong>nsukka</strong></div>
+            <div id="time">08:10</div>
+            <div class="description">cloud</div>
+          </div>
+          <div id="icon" class="icon">🌟</div>
+          <div class="temp">
+            <div id="temp">
+              <strong>20</strong><span class="unit"> °C</span>
+            </div>
+          </div>
+          <div class="prep">
+            <div class="precipitation">Precipitation: 71%</div>
+            <div class="wind"><span></span>km/h</div>
+          </div>
+        </div>
+        <div class="list">
+          <ul>
+            <li class="fri"><span>🌧️</span> Fri <span>15°</span></li>
+            <li class="sat"><span>☀</span> Sat <span>16°</span></li>
+            <li class="sun"><span>☀</span> Sun <span>11°</span></li>
+            <li class="mon"><span>☀</span> Mon <span>10°</span></li>
+            <li class="tues"><span>☀</span> Tue <span>13°</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
   </body>
 </html>
