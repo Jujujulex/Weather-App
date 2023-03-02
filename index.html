@@ -32,14 +32,13 @@
           </div>
         </div>
         <div class="button">
-          <button type="submit" class="btn btn-primary" id="blue-button">
+          <button type="submit"  id="blue-button">
             Search
           </button>
-        
-      </form>
-      <button type="submit" class="btn btn-primary" id="orange-button">
+        <button type="submit"  id="orange-button">
         Current
       </button>
+      </form>
     </div>
       <div class="weather-app">
         <div class="weather-details">
@@ -48,15 +47,17 @@
             <div id="time">08:10</div>
             <div class="description">cloud</div>
           </div>
-          <div id="icon" class="icon">🌟</div>
-          <div class="temp">
+          <div class="icon"><img src="http://openweathermap.org/img/wn/10d@2x.png" id="icon" /></div>
+          <div class="temp-prep">
+          <div class="d-flex temp">
             <div id="temp">
-              <strong>20</strong><span class="unit"> °C</span>
+              <strong>20</strong><span class="unit">°C | °F </span>
             </div>
           </div>
           <div class="prep">
-            <div class="precipitation">Precipitation: 71%</div>
-            <div class="wind"><span></span>km/h</div>
+            <div>Humidity: <span class="humidity"></span>%</div>
+            <div >Wind: <span class="wind">km/h</span></div>
+          </div>
           </div>
         </div>
         <div class="list">

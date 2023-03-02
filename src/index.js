@@ -28,7 +28,6 @@ function search(event) {
   let searchInput = document.querySelector("#exampleInputEmail1").value;
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&units=metric&appid=${apiKey}`;
-
   axios.get(apiUrl).then(weather);
 }
 let cityForm = document.querySelector("#city-form");
@@ -39,12 +38,19 @@ function weather(response) {
   let temperature = Math.round(response.data.main.temp);
   let defaultTemperature = document.querySelector("#temp");
   defaultTemperature.innerHTML = `${temperature}°C`;
+  let humidityElement = document.querySelector(".humidity");
+  humidityElement.innerHTML = response.data.main.humidity;
   let windSpeed = document.querySelector(".wind");
   let currentWind = Math.round(response.data.wind.speed);
   windSpeed.innerHTML = `${currentWind}km/h`;
   let weatherDescription = document.querySelector(".description");
   let detail = response.data.weather[0].description;
   weatherDescription.innerHTML = `${detail}`;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 //this function fetches the location of your device by default
 function searchLocation(position) {
