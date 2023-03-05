@@ -58,7 +58,7 @@ button:hover {
   height: 19rem;
 }
 .weather-app {
-  background-image: url(../images/weather-image.jpeg);
+  background-image: url(../images/weather-image2.jpg);
 }
 .weather-details {
   position: relative;
@@ -88,14 +88,12 @@ button:hover {
 
   font-size: 25px;
 }
-.float-left span {
-  position: relative;
-  font-size: 16px;
-  top: -10px;
-}
+
 .unit {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
+  position: relative;
+  top: -10px;
 }
 .prep {
   color: hsl(0, 0%, 8%);
@@ -132,11 +130,16 @@ li:hover {
 }
 a {
   text-decoration: none;
-  color: rgba(0, 0, 255, 0.425);
+  color: rgba(8, 8, 231, 0.897);
 }
 footer {
   font-family: monospace;
   position: relative;
-  left: 29.5%;
+  left: 30%;
   font-size: 13px;
+}
+
+.weather-details .active {
+  color: rgba(13, 13, 14, 0.904);
+  cursor: default;
 }

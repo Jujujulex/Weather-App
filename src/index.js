@@ -30,14 +30,19 @@ function search(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(weather);
 }
+
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", search);
-//this funtion uses the data fetched from above to rewrite innerhtmls
+
+//this funtion uses the data fetched from the fimction search(event) to rewrite innerhtmls
 function weather(response) {
   document.querySelector("#town").innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(celsiusTemperature);
   let defaultTemperature = document.querySelector("#temp");
-  defaultTemperature.innerHTML = `${temperature}°C`;
+  defaultTemperature.innerHTML = `${temperature}`;
+
+  celsiusTemperature = response.data.main.temp;
+
   let humidityElement = document.querySelector(".humidity");
   humidityElement.innerHTML = response.data.main.humidity;
   let windSpeed = document.querySelector(".wind");
@@ -52,6 +57,7 @@ function weather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
+
 //this function fetches the location of your device by default
 function searchLocation(position) {
   let apiKey = "40305f3309a7ac55bca48e8adec8ae7a";
@@ -67,3 +73,33 @@ function getLocation(event) {
 }
 let currentLocation = document.querySelector("#orange-button");
 currentLocation.addEventListener("click", getLocation);
+
+function fetch(city) {
+  let apiKey = "40305f3309a7ac55bca48e8adec8ae7a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(weather);
+}
+fetch("lagos");
+
+//This function converts the fahrenheit temperature from the temperature gotten from celsiusTemoerature variable
+function getFahrenheitTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let defaultTemperature = document.querySelector("#temp");
+  defaultTemperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+let celsiusTemperature = null;
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", getFahrenheitTemperature);
+
+function getCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let defaultTemperature = document.querySelector("#temp");
+  defaultTemperature.innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", getCelsiusTemperature);
