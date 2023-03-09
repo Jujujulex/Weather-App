@@ -31,47 +31,48 @@
             </div>
           </div>
         </div>
+
         <div class="button">
-          <button type="submit"  id="blue-button">
-            Search
-          </button>
-        <button type="submit"  id="orange-button">
-        Current
-      </button>
+          <button type="submit" id="blue-button">Search</button>
+          <button type="submit" id="orange-button">Current</button>
+        </div>
       </form>
-    </div>
       <div class="weather-app">
         <div class="weather-details">
           <div class="town-time-des">
-            <div id="town" class="town"><strong>nsukka</strong></div>
-            <div id="time">08:10</div>
-            <div class="description">cloud</div>
+            <div id="town" class="town"><strong></strong></div>
+            <div id="time"></div>
+            <div class="description"></div>
           </div>
-          <div class="icon"><img src="http://openweathermap.org/img/wn/10d@2x.png" id="icon" /></div>
+          <div class="icon">
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" id="icon" />
+          </div>
           <div class="temp-prep">
-          <div class="d-flex temp">
-            <div >
-              <strong id="temp">20</strong><span class="unit"><a href="#" id="celsius-link" class="active">°C </a>|<a href="#" id="fahrenheit-link">°F</a></span>
+            <div class="d-flex temp">
+              <div>
+                <strong id="temp"></strong
+                ><span class="unit"
+                  ><a href="#" id="celsius-link" class="active">°C </a>|<a
+                    href="#"
+                    id="fahrenheit-link"
+                    >°F</a
+                  ></span
+                >
+              </div>
+            </div>
+            <div class="prep">
+              <div>Humidity: <span class="humidity"></span>%</div>
+              <div>Wind: <span class="wind">km/h</span></div>
             </div>
           </div>
-          <div class="prep">
-            <div>Humidity: <span class="humidity"></span>%</div>
-            <div >Wind: <span class="wind">km/h</span></div>
-          </div>
-          </div>
         </div>
-        <div class="list">
-          <ul>
-            <li class="fri"><span>🌧️</span> Fri <span>15°</span></li>
-            <li class="sat"><span>☀</span> Sat <span>16°</span></li>
-            <li class="sun"><span>☀</span> Sun <span>11°</span></li>
-            <li class="mon"><span>☀</span> Mon <span>10°</span></li>
-            <li class="tues"><span>☀</span> Tue <span>13°</span></li>
-          </ul>
-        </div>
+        <div class="list" id="forcast"></div>
       </div>
     </div>
     <script src="src/index.js"></script>
-    <footer><a href="https://github.com/Jujujulex/Weather-App">Open-source code</a>, by Juliet Amobi</footer>
+    <footer>
+      <a href="https://github.com/Jujujulex/Weather-App">Open-source code</a>,
+      by Juliet Amobi
+    </footer>
   </body>
 </html>

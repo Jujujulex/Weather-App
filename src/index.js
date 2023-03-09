@@ -1,3 +1,4 @@
+/*sets the date and time*/
 let now = new Date();
 
 let days = [
@@ -20,6 +21,48 @@ if (hours < 10) {
 }
 let time = document.querySelector("#time");
 time.innerHTML = `${day} ${hours}:${minutes}`;
+/*this formats the dt data gotten from daily forecast and puts it into readable days*/
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+/*here is where the margic happens(in Matt's voice😁) the html data for daily forcast is formatted here*/
+function displayForcast(response) {
+  let forcast = response.data.daily;
+  let forcastElement = document.querySelector("#forcast");
+
+  let forcastHTML = ``;
+
+  forcast.forEach(function (forcastDay, index) {
+    if (index < 7) {
+      forcastHTML =
+        forcastHTML +
+        `<div class="row id="row">
+    <ul>
+      <li class="fri">
+        <img
+          src="http://openweathermap.org/img/wn/${
+            forcastDay.weather[0].icon
+          }@2x.png"
+          alt="mist"
+          width="36"
+        />
+        <span class="weather-forcast-date">${formatDay(forcastDay.dt)}</span>
+        <span class="weather-forcast-temperature-max"> ${Math.round(
+          forcastDay.temp.max
+        )}°</span><strong>/</strong><span class="weather-forcast-temperature-min">${Math.round(
+          forcastDay.temp.min
+        )}°</span>
+      </li>
+    </ul>
+  </div>`;
+    }
+  });
+
+  forcastElement.innerHTML = forcastHTML;
+}
 
 //this function fetches the city in the search input then deliver it to function(weather)
 function search(event) {
@@ -33,16 +76,21 @@ function search(event) {
 
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", search);
+/*this function provides the daily forecast apiurl needed for daily forecast, the apiurl is then sent to displayForcast above*/
+function getForcast(coordinate) {
+  let apiKey = "50fa4024e3b1d5eac2f51ab18a47e997";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinate.lat}&lon=${coordinate.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForcast);
+}
 
 //this funtion uses the data fetched from the fimction search(event) to rewrite innerhtmls
 function weather(response) {
   document.querySelector("#town").innerHTML = response.data.name;
+
+  celsiusTemperature = response.data.main.temp;
   let temperature = Math.round(celsiusTemperature);
   let defaultTemperature = document.querySelector("#temp");
   defaultTemperature.innerHTML = `${temperature}`;
-
-  celsiusTemperature = response.data.main.temp;
-
   let humidityElement = document.querySelector(".humidity");
   humidityElement.innerHTML = response.data.main.humidity;
   let windSpeed = document.querySelector(".wind");
@@ -56,6 +104,8 @@ function weather(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  /*this single line function collects lon & lat from the function(response) then uses it to set up it's own apiurl*/
+  getForcast(response.data.coord);
 }
 
 //this function fetches the location of your device by default
@@ -73,7 +123,7 @@ function getLocation(event) {
 }
 let currentLocation = document.querySelector("#orange-button");
 currentLocation.addEventListener("click", getLocation);
-
+/*this function provides the Lagos data that displays on the app by default*/
 function fetch(city) {
   let apiKey = "40305f3309a7ac55bca48e8adec8ae7a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
