@@ -1,5 +1,6 @@
 body {
   background: rgb(243, 244, 246);
+  max-width: 1440px;
 }
 H1 {
   position: relative;
@@ -27,9 +28,7 @@ button:hover {
   opacity: 0.9;
   cursor: pointer;
 }
-#button {
-  display: flex;
-}
+
 #orange-button {
   background: orange;
   border: none;
@@ -47,7 +46,7 @@ button:hover {
 }
 .container {
   position: relative;
-  left: 27%;
+  left: 30%;
   margin: 1rem;
 }
 .weather-app {
@@ -149,12 +148,52 @@ a {
 }
 footer {
   font-family: monospace;
-  position: relative;
-  left: 35%;
+  text-align: center;
   font-size: 13px;
 }
 
 .weather-details .active {
   color: rgba(13, 13, 14, 0.904);
   cursor: default;
+}
+
+@media (max-width: 700px) {
+  h1 {
+    position: relative;
+    left: 25%;
+  }
+  footer {
+    text-align: center;
+    font-size: 13px;
+  }
+  form {
+    position: relative;
+    right: 5rem;
+  }
+  .container {
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .weather-app {
+    position: relative;
+    right: 6rem;
+    width: 9cm;
+    margin-top: 0.5rem;
+    height: 19.5rem;
+  }
+  .prep {
+    position: relative;
+    left: 5rem;
+    bottom: 2rem;
+  }
+  li {
+    width: 8rem;
+  }
+  .list {
+    position: relative;
+    left: 11.5rem;
+    bottom: 17rem;
+  }
 }
